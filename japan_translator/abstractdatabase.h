@@ -5,6 +5,7 @@
 #include "qstringlist.h"
 #include "qfile.h"
 #include "qtextstream.h"
+#include "qbytearray.h"
 
 class AbstractDataBase : public QObject
 {
@@ -17,9 +18,12 @@ public:
 	QStringList get_data() const;
 
 	virtual void read_data()=0;
+	virtual QString add_data(QByteArray data)=0;
+	virtual void write_data(QString lang)=0;
 
 protected:
-	void read_file(QString file);
+	void read_file(QString file, QLocale local);
+	void write_file(QString file, QLocale local);
 	QStringList _words;
 
 private:

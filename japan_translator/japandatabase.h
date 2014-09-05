@@ -13,6 +13,8 @@ public:
 	~JapanDataBase();
 
 	virtual void read_data();
+	virtual QString add_data(QByteArray data);
+	virtual void write_data(QString lang);
 
 private:
 };
